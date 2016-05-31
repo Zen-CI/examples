@@ -1,0 +1,15 @@
+deploy:
+  production:
+    server: p1.zen.ci
+    username: zen
+    dir: '{home}/github/drupal/{branch}'
+    env_vars:
+      docroot: '{home}/domains/zen.ci'
+      domain: zen.ci
+      sitename: ZenCI
+      sitemail: noreply@zen.ci
+      database_name: zen_production
+      database_user: zen_production
+    scripts:
+      init: '{home}/scripts/drupal_install.sh'
+      after: '{home}/scripts/drupal_updb.sh'
